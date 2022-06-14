@@ -1,0 +1,38 @@
+package com.my.control;
+
+import java.io.IOException;
+
+
+public class ProductListServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=UTF:8");
+		printWriter out = response.getWriter();
+		String result = "[";
+		
+		result += "{";
+		result += "\"prod_no\":"; result +="\"C0001\""; result += ",";  //한줄로 쓰는 것보다 쪼개서 쓰는게
+		result += "\"prod_name\":"; result +="\"아메리카노\""; result += ",";
+		result += "\"prod_price\":"; result +="1000";
+		result += "}";
+		result += ",";
+		
+		result += "{";
+		result += "\"prod_no\":"; result +="\"C0002\""; result += ",";  //한줄로 쓰는 것보다 쪼개서 쓰는게
+		result += "\"prod_name\":"; result +="\"아메리카노\""; result += ",";
+		result += "\"prod_price\":"; result +="1000";
+		result += "}";
+		result += ",";
+		
+		result += "{";
+		result += "\"prod_no\":"; result +="\"C0003\""; result += ",";  //한줄로 쓰는 것보다 쪼개서 쓰는게
+		result += "\"prod_name\":"; result +="\"아메리카노\""; result += ",";
+		result += "\"prod_price\":"; result +="1500";
+		result += "}";
+		
+		result += "]";		
+		
+		out.print(result);
+	}
+}

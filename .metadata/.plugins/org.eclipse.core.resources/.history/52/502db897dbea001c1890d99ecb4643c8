@@ -1,0 +1,25 @@
+package com.my.control;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class RequestServlet
+ */
+public class RequestServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+   
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		StringBuffer url = request.getRequestURL();
+		String contextPath = request.getContextPath();
+		String serveletPath = request.getServletPath();
+		System.out.println("url=" + url); //localhost:8888/back/request
+		System.out.println("contextPath=" + contextPath); //localhost:8888/back/request
+		System.out.println("servletPath" + servletPath); //localhost:8888/back/request
+		
+	}
+
+}
