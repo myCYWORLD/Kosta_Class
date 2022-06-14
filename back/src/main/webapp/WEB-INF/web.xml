@@ -88,4 +88,14 @@
     <servlet-name>ProductListServlet</servlet-name>
     <url-pattern>/productlist</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>iDdupChkServlet</display-name>
+    <servlet-name>iDdupChkServlet</servlet-name>
+    <servlet-class>com.my.control.iDdupChkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>iDdupChkServlet</servlet-name>
+    <url-pattern>/iddupchk</url-pattern>
+  </servlet-mapping>
 </web-app>
