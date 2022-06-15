@@ -1,5 +1,6 @@
 $(function () {
   $.ajax({
+    // 1번작업 비동기일처리 (url 요청하러 갔을 때 결과가 O면 콜백함수 호출)
     url: "http://localhost:8888/back/productlist",
     success: function (jsonObj) {
       //jsonObj은 배열형태, 반복처리하면서
@@ -26,4 +27,20 @@ $(function () {
       alert("오류:" + jqXHR.status); //404, 500, 200 JSON문자열 문제
     },
   });
+
+  let $tableObj = $("div.table");
+  //div.td객체 찾기  -> 2번작업은 1번작업의 결과가 나오던지 말던지 일 함
+  let $tdObj = $("div.td");
+  //--div.td객체 클릭 START--
+  //   $tdObj.click(function () {  //온메서드 앞에 오는 객체는 현재 돔트리에 존재하는 객체.
+  $tableObj.on("click", "div.td", function () {
+    let src = $(this).find("img").attr("src"); // ../images/C0001.jpg
+    console.log("src", src);
+    let arr = src.split("/");
+    console.log("arr", arr);
+    let prod_no = arr[arr.length - 1].split(".")[0]; //C0001.jpg
+    console.log("prod_no", prod_no);
+    location.href = "http://localhost:8888/back/viewproduct?prod_no=" + prod_no;
+  });
+  //--div.td객체 클릭  END --
 });
