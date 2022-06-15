@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 			pstmt.setString(1,  id);
 			pstmt.setString(2,  pwd);
 			pstmt.executeQuery();
-			rs = pstmt.executeQuery();
+		rs = pstmt.executeQuery();// executequery(); = 결과값을 나타내는 함수
 			if(rs.next()) { //행이 존재하면 로그인 성공된 것 
 				result = "{\"status\": 1}";
 			}

@@ -12,14 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.my.dto.Product;
 import com.my.sql.MyConnection;
 
-public class iDdupChkServlet extends HttpServlet {
+public class idDupChkServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		Product sample = (Product)request.getAttribute("test");
+		System.out.println(sample);
 		
+		String id = request.getParameter("id");
 		String result = "{\"status\": 0,  \"msg\": \"이미 사용중인 아이디 입니다\"}";
 		
 		//DB연결

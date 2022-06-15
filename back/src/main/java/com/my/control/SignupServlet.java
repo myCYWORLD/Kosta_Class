@@ -31,7 +31,7 @@ public class SignupServlet extends HttpServlet {
 		Connection con = null;     //가입성공 아닐 시 무조건 실패
 		//SQL송신
 		PreparedStatement pstmt = null; //executeUPdate() -> DML이나 DDL 사용하려면 메서드 사용
-		int rs = 0;
+		int rs = 0;  //insert일 때에는 자료형 int사용 / select일 때에는 resultSet 사용
 		
 		String result = "{\"status\":0, \"msg\": \"가입실패\"}";
 		try {
@@ -42,17 +42,14 @@ public class SignupServlet extends HttpServlet {
 			pstmt.setString(2, pwd);
 			pstmt.setString(3, name);
 			pstmt.setString(4, addr);
-			pstmt.setString(5, "1");
 			pstmt.setString(5, buildingno);
-			rs = pstmt.executeUpdate();
-			if(rs == 1) {
-				result = "{\"status\": 1,  \"msg\": \"가입성공\" }";
-			}
+			pstmt.executeUpdate(); 
+			result = "{\"status\": 1,  \"msg\": \"가입성공\" }";
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			MyConnection.close(pstmt, con);
-			System.out.println(id + ":" + pwd + ":" + name + ":" + addr + ":" + buildingno);
+//			System.out.println(id + ":" + pwd + ":" + name + ":" + addr + ":" + buildingno);
 
 			response.setContentType("application/json;charset=UTF-8");
 			PrintWriter out = response.getWriter();
