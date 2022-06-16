@@ -3,6 +3,7 @@ package com.my.control;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,21 +28,29 @@ public class ViewProductServlet extends HttpServlet {
 		ProductRepository repository = new ProductOracleRepository();
 		try {
 			Product p = repository.selectByProdNo(prod_no);
+			
+			
+			
+			//3.request의 속성(이름:"p", 값:상품객체) 설정
+			request.setAttribute("p",p);
+			
+			//4."/jsp/viewproduct.jsp이동
+			String path = "/jsp/viewproduct.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(path);
+			rd.forward(request, response);
 			//3.응답형식 지정
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.print("<!DOCTYPE html>");
-			out.print("<html>");
-			out.print("상품번호:" + prod_no);
-			out.print("<h1>");
-			out.print("상품명:" + p.getProdName());
-			out.print("</h1>");
-			out.print("가격:" + p.getProdPrice());
-			out.print("<html>");
+//			response.setContentType("text/html; charset=UTF-8");
+//			PrintWriter out = response.getWriter();
+//			out.print("<!DOCTYPE html>");
+//			out.print("<html>");
+//			out.print("상품번호:" + prod_no);
+//			out.print("<h1>");
+//			out.print("상품명:" + p.getProdName());
+//			out.print("</h1>");
+//			out.print("가격:" + p.getProdPrice());
+//			out.print("</html>");
 		} catch (FindException e) {
 			e.printStackTrace();
 		}
-
-
 	}
 }

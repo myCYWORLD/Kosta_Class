@@ -23,12 +23,14 @@ public class MoveServlet extends HttpServlet {
 			//요청 속성(속성명: 'test', 값 : 상품객체 추가)
 			Product sample = new Product("F0001", "샌드위치", 2000);
 			request.setAttribute("test", sample);
+			
 			//---------FORWARD 전의 응답
 			PrintWriter out = response.getWriter();
 			out.print("BEFORE FORWARD");
 			String path = "/iddupchk";
 			RequestDispatcher rd = request.getRequestDispatcher(path);
 			rd.forward(request, response);
+			
 			//---------FORWARD 후의 응답
 			out.print("AFTER FORWARD");
 			
@@ -46,8 +48,7 @@ public class MoveServlet extends HttpServlet {
 			
 			//---------INCLUDE 후의 응답
 			out.print("AFTER INCLUDE");
-			
-			
+		
 		}else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -57,6 +58,10 @@ public class MoveServlet extends HttpServlet {
 			out.print("<a href=\"move?opt=forward\">FORWARD</a>");
 			out.print("</li>");
 
+			out.print("<li>");
+			out.print("<a href=\"move?opt=redirect\">REDIRECT</a>");
+			out.print("</li>");
+			
 			out.print("<li>");
 			out.print("<a href=\"move?opt=include\">INCLUDE</a>");
 			out.print("</li>");

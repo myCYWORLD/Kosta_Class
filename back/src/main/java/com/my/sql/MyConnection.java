@@ -23,7 +23,7 @@ public class MyConnection {
 		String password = "hr";
 		
 		con = DriverManager.getConnection(url, user, password);			
-		return con;		//getConnection을 다른 곳에서도 계속 사용하기 위해 리턴값있는 메소드
+		return con;		//getConnectio n을 다른 곳에서도 계속 사용하기 위해 리턴값있는 메소드
 	}
 	public static void close(ResultSet rs, Statement stmt, Connection con) {
 		//7.DB연결해제
