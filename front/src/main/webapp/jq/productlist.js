@@ -1,6 +1,6 @@
 $(function () {
   $.ajax({
-    // 1번작업 비동기일처리 (url 요청하러 갔을 때 결과가 O면 콜백함수 호출)
+    // 1번작업 비동기 일처리 (url 요청하러 갔을 때 결과가 success면 콜백함수 호출)
     url: "http://localhost:8888/back/productlist",
     success: function (jsonObj) {
       //jsonObj은 배열형태, 반복처리하면서
@@ -14,7 +14,7 @@ $(function () {
         );
 
         let $copyObj = $tdObj.clone(); //객체 복제
-        let $imgObj = $copyObj.find("img");
+        let $imgObj = $copyObj.find("img"); //imgObj변수에 copyObj
         $imgObj.attr("src", "../images/" + item.prod_no + ".jpg");
         $imgObj.attr("alt", item.prdo_name);
         $copyObj.find("li.prod_name").html(item.prod_name);
@@ -32,7 +32,7 @@ $(function () {
   //div.td객체 찾기  -> 2번작업은 1번작업의 결과가 나오던지 말던지 일 함
   let $tdObj = $("div.td");
   //--div.td객체 클릭 START--
-  //   $tdObj.click(function () {  //온메서드 앞에 오는 객체는 현재 돔트리에 존재하는 객체.
+  //   $tdObj.click(function () {  //on메서드 앞에 오는 객체는 현재 돔트리에 존재하는 객체.
   $tableObj.on("click", "div.td", function () {
     let src = $(this).find("img").attr("src"); // ../images/C0001.jpg
     console.log("src", src);
