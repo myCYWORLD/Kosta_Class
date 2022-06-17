@@ -46,6 +46,7 @@ section{
 	height: 400px;
 	width: 80%;	
 	overflow: auto;
+	border: 0.5px solid;
 }
 .article2{
 	position:relative;
@@ -63,6 +64,7 @@ section{
 	margin-top:80px;
 	vertical-align: middle;
 }
+
 
 
 #advertisement{
@@ -90,10 +92,10 @@ section{
 	color:white;
 	font-size: 12px;
 }
-ul{
+nav ul{
 	list-style: none;
 	padding-left:0px;
 }
-li{
+nav li{
 	display: inline-block;
 }
