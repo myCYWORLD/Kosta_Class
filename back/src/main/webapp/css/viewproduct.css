@@ -5,12 +5,13 @@ div.viewproduct{
 }
 div.viewproduct>div.detail{
 	display: inline-block;
-	width:  50%
+	width: 50%;
 }
 div.viewproduct>div.detail>ul{
-	list-style-type:none;
+	list-style-type: none;
 	padding-left: 0px;
+	text-align: center;
 }
 div.viewproduct>div.detail>ul>li{
-	margin-top:20px;
+	margin-top: 20px;
 }

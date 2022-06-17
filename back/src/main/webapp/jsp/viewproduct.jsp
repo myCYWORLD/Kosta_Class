@@ -1,6 +1,5 @@
 <%@page import="com.my.dto.Product"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +16,7 @@
 	<section>
 		<article>
 			<div class="viewproduct">
-				<img src="/front/images/<%=p.getProdNo()%>.jpg"
-					alt="<%=p.getProdName()%>">
+				<img src="/front/images/<%=p.getProdNo()%>.jpg"alt="<%=p.getProdName()%>">
 				<div class="detail">
 					<ul>
 						<li>상품번호:<%=p.getProdNo()%></li>
