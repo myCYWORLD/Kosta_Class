@@ -14,7 +14,7 @@ $.ajax({
 		let prod_mfd = jsonObj.p.prodMfd;
 		let prod_info = jsonObj.p.prodInfo;
 		$("div.viewproduct>img").attr("src", "../images/" + prod_no + ".jpg");
-		//;
+		
 
 		$("div.viewproduct ul>li>span.prod_no").html(prod_no);
 		$("div.viewproduct ul>li>span.prod_name").html(prod_name);
@@ -25,26 +25,37 @@ $.ajax({
 		alert(jsonObj.msg);
 	}
 	},
-	error: function (jqXHR) {
+	error: function () {
 	alert("오류:" + jqXHR.status);
-	},
+	}
 });
+
 //----장바구니 버튼 클릭START-----
-$("div.viewproduct ul>li>button").click(function () {
-	let prod_no = $("div.viewproduct ul>li>span.prod_no");
-	let quanitity = $("div.viewproduct ul>li>input[name=quantity]").val();
+$("div.viewproduct ul>li>button").click(function() {
+	let prod_no = $("div.viewproduct ul>li>span.prod_no").html();
+	let quantity = $("div.viewproduct ul>li>input[name=quantity]").val();
+	//alert("장바구니 버튼 클릭")
 	$.ajax({
 	url: "/back/addcart",
 	method: "get",
-	data: { prod_no: prod_no, quantity: quantity },
+	data: { prod_no: prod_no, quantity: quantity},
 	success: function () {
 		$("div.viewproduct div.result").show();
 	},
 	error: function (jqXHR) {
-		alert("오류:" + jqXHR);
-	},
+		alert("오류:" + jqXHR.status);
+	}
 	});
 	return false;
 });
 //----장바구니 버튼 클릭 END -----
+
+//----상품목록 보기버튼 클릭 START -----
+$('div.result>button.productlist').click(function () {
+	$('nav>a[href="productlist.html"]').trigger('click');
+});
+//----상품목록 보기버튼 클릭 END-----
+$('div.result>button.viewcart').click(function () {
+	$('nav>a[href="viewcart.html"]').trigger('click');
+});
 });
