@@ -50,7 +50,6 @@ public class ViewProductServlet extends HttpServlet {
 			System.out.println("result :" + result);
 			out.print(result);
 			
-			
 			//3.request의 속성(이름:"p", 값:상품객체) 설정
 //			request.setAttribute("p",p);
 			
@@ -65,7 +64,6 @@ public class ViewProductServlet extends HttpServlet {
 //			out.print("</h1>");
 //			out.print("가격:" + p.getProdPrice());
 //			out.print("</html>");
-			
 			
 			//4."/jsp/viewproduct.jsp이동
 //			String path = "/jsp/viewproduct.jsp";

@@ -19,7 +19,8 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		//String타입의 id 변수에 매개변수 request에 getParameter
+		String id = request.getParameter("id");  
 		String pwd = request.getParameter("pwd");
 		
 		
