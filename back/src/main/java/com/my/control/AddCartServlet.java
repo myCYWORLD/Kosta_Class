@@ -15,9 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import com.my.dto.Product;
 
-/**
- * Servlet implementation class AddCartServlet
- */
 public class AddCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,26 +23,31 @@ public class AddCartServlet extends HttpServlet {
 		String quantity = request.getParameter("quantity");
 
 		HttpSession session = request.getSession();
-		//카트 먼저 꺼내와서 카트가 있는지 없는지 먼저 판단
-		List<Map<Product, Integer>> cart = (List)session.getAttribute("cart");
-		if(cart == null) { //장바구니 없는 경우
-			cart  = new ArrayList<>();
+		//카트 먼저 꺼내와서 카트가 있는지 없는지 먼저 판단 (카트가 없으면 만들고 있으면 그대로 사용)
+		Map<Product, Integer> cart = (Map)session.getAttribute("cart");                                                                                     
+		if(cart == null) {
+			cart = new HashMap<>();
 			session.setAttribute("cart", cart);
 		}
-		Product p = new Product();
-		p.setProdNo(prodNo);
+
+		Product p = new Product(); p.setProdNo(prodNo);
 		int newQuantity = Integer.parseInt(quantity);
-		
-		for(Map <Product, Integer> map: cart) {
-			Integer oldQuantity = map.get(p);  //매개변수로 사용된 변수의 해시코드와 equals 메서드가 오버라이딩 되어있어야함
-			if(oldQuantity != null) { //상품이 없는 경우
-				newQuantity+= oldQuantity;
-				break;
-			}
+		Integer oldQuantity = cart.get(p);
+		if(oldQuantity != null) { //상품이 있는 경우
+			newQuantity+= oldQuantity;
 		}
-		Map<Product, Integer> map = new HashMap<>();  //반복문이 끝나면 새로 map을 만들어서 누적
-		map.put(p, Integer.parseInt(quantity));
-		cart.add(map);
+		cart.put(p, newQuantity);
+
+		System.out.println("장바구니 목록 수 :" + cart.size());
+		System.out.println(cart);
+//		for(Map <Product, Integer> map: cart) {
+//			Integer oldQuantity = map.get(p);  //매개변수로 사용된 변수의 해시코드와 equals 메서드가 오버라이딩 되어있어야함
+//			if(oldQuantity != null) { //상품이 없는 경우
+//				break;
+//			
+//		Map<Product, Integer> map = new HashMap<>();  //반복문이 끝나면 새로 map을 만들어서 누적
+//		map.put(p, Integer.parseInt(quantity));
+//		cart.add(map);
 
 //		boolean exist = false; //상품존재 여부
 //		outer : for(Map <Product, Integer> map: cart) {
@@ -80,7 +82,6 @@ public class AddCartServlet extends HttpServlet {
 //		cart.add(map); 
 //		
 //		session.setAttribute("cart", cart);
-
 	}
-
 }
+
