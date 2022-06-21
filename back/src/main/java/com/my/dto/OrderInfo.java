@@ -2,12 +2,16 @@ package com.my.dto;
 
 import java.util.Date;
 import java.util.List;
-
+/**
+ * 주문기본정보
+ * @author User
+ *
+ */
 public class OrderInfo {
-	private int orderNo;
-	private String orderId;
-	private Date orderDt;
-	private List<OrderLine> lines;
+	private int orderNo; //주문번호
+	private String orderId; //주문아이디
+	private Date orderDt; //주문일자
+	private List<OrderLine> lines; //info가 line을 has a 관계로 가지고 있음
 	
 	public OrderInfo() {
 		super();

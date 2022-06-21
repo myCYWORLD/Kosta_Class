@@ -5,6 +5,8 @@ public class OrderLine {
 	private Product orderP;
 	private int orderQuantity;
 	
+	public OrderLine() {}
+	
 	public OrderLine(int orderNo, Product orderP, int orderQuantity) {
 		super();
 		this.orderNo = orderNo;
