@@ -16,7 +16,9 @@ $(function () {
       let $navObjHtml = "";
       if (jsonObj.status == 1) {
         //로그인된 경우
+        $navObjHtml += '<a href= "vieworder.html">주문내역</a>';
         $navObjHtml += '<a href= "/back/logout">로그아웃</a>';
+
       } else {
         //로그인 안 된 경우
         $navObjHtml += '<a href="login.html">로그인</a>';
@@ -60,4 +62,7 @@ $(function () {
     return false;
   });
   //-----메뉴 클릭  END -----
+
+
+  
 });
