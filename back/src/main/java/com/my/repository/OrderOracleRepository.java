@@ -58,6 +58,10 @@ public class OrderOracleRepository implements OrderRepository {
 		pstmt.executeBatch();
 	}
 	@Override
+	/*
+	 * 주문내역을 db에서 가져온다
+	 * 이 메소드의 파라미터로는 스트링타입의 orderId가 와야함
+	 */
 	//최근주문번호 오름차순 상품번호 내림차순 
 	public List<OrderInfo> selectById(String orderId) throws FindException {
 		//
@@ -79,16 +83,14 @@ public class OrderOracleRepository implements OrderRepository {
 				String prodName = rs.getString("prod_name");
 				Integer prodPrice = rs.getInt("prod_price");
 				Product orderP = new Product(orderProdNo,prodName, prodPrice);		
-				List<OrderLine> orderLine = (List)new OrderLine (orderNo, orderP, orderQuantity);			
-
-				orderInfo = (List) new OrderInfo(orderNo, orderId, orderDT,orderLine);
+				List<OrderLine> orderLine = new ArrayList<>();
+				orderLine.add(new OrderLine (orderNo, orderP, orderQuantity));
+				orderInfo.add(new OrderInfo(orderNo, orderId, orderDT,orderLine));
 			}
 			return orderInfo;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
-
-}
-
+	}
 }

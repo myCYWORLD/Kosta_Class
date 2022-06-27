@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+    <fullyQualifiedTypeName name="com.my.exception.FindException"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.util.http.ResponseUtil"/>
+    <fullyQualifiedTypeName name="javax.websocket.Decoder.Text"/>
+    <fullyQualifiedTypeName name="javax.swing.undo.CannotUndoException"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.lang.OutOfMemoryError"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.my.sql.MyConnection"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="org.eclipse.jdt.internal.compiler.ast.WhileStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.my.dto.OrderLine"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.my.repository.ProductRepository"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.my.repository.ProductOracleRepository"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="oracle.jdbc.driver.T4CTTIkpdnrdeq"/>
+    <fullyQualifiedTypeName name="org.apache.catalina.startup.ClassLoaderFactory.Repository"/>
+    <fullyQualifiedTypeName name="com.my.dto.Product"/>
+    <fullyQualifiedTypeName name="com.my.repository.OrderRepository"/>
+    <fullyQualifiedTypeName name="com.my.repository.OrderOracleRepository"/>
+    <fullyQualifiedTypeName name="com.my.dto.OrderInfo"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

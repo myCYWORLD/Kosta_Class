@@ -21,7 +21,7 @@ public class ViewCartServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//세션으로 카트를 확인해보고 제이슨 형태로 응답받기
-		HttpSession session = request.getSession();
+		HttpSession session = request.getsSession();
 		Map<Product, Integer>cart = (Map)session.getAttribute("cart");
 		
 		ObjectMapper mapper = new ObjectMapper();

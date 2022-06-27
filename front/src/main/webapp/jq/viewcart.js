@@ -53,14 +53,14 @@ $("div.viewcart>div.addorder>button").click(function () {
 	url: "/back/addorder",
 	success:function(jsonObj) {
 		if(jsonObj.status == 1) { //주문성공경우
-			alert(json.msg);
+			//alert(json.msg);
 			//location.href=""; //
 $('nav>a[href="productlist.html"]').trigger('click'); //상품목록
 		}else if(jsonObj.status == 0){ //로그인 안된 경우
-			alert(json.msg);
+			//alert(json.msg);
 			$('nav>a[href="productlist.html"]').trigger('click'); //로그인
 		}else if(jsonObj.status == -1){ //주문실패
-			alert(json.msg);
+			//alert(json.msg);
 		}
 	},
 	error:function(jqXHR) {
